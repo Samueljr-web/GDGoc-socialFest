@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const adminAuth = () => {
-  const adminDetails = JSON.parse(sessionStorage.getItem("adminDetails"));
+  const adminDetails = JSON.parse(sessionStorage.getItem("userDetails"));
   return adminDetails;
 };
 
