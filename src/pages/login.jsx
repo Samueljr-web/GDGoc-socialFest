@@ -12,7 +12,10 @@ function Login() {
   const navigate = useNavigate();
   const userData = JSON.parse(sessionStorage.getItem("userDetails"));
   const onSubmit = (data) => {
-    if (userData.email === data.email && userData.password === data.password) {
+    if (
+      userData?.email === data.email &&
+      userData?.password === data.password
+    ) {
       toast("Login Successful", {
         type: "success",
       });
@@ -27,8 +30,8 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-row-reverse items-center justify-center h-screen">
-      <div className="bg-[#3BB396] text-white h-[560px] rounded-r-lg w-[300px] flex flex-col items-center justify-center">
+    <div className="flex md:flex-row-reverse items-center justify-center h-screen">
+      <div className="bg-[#3BB396] text-white h-[560px] rounded-r-lg w-[300px] md:flex hidden flex-col items-center justify-center">
         <div>
           <h1 className="float-left text-2xl">GDGoc Socialfest</h1>
         </div>
@@ -44,7 +47,7 @@ function Login() {
       <div></div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex items-center flex-col justify-center h-[560px] rounded-l-lg border-solid w-[500px] shadow-md"
+        className="flex items-center flex-col justify-center h-[560px] rounded-l-lg md:w-[450px] lg:w-[500px] md:shadow-md"
       >
         <h2 className="text-4xl text-[#50A294] text-center">Welcome Back!</h2>
         <div className="mt-10 space-y-6">
@@ -75,6 +78,16 @@ function Login() {
           >
             Login
           </button>
+          <div className="text-center md:hidden block  mt-2">
+            <h3 className="text-sm text-[#50A294] ">
+              Dont have an account?{" "}
+              <span>
+                <Link to={"/register"} className="underline">
+                  Signup
+                </Link>
+              </span>
+            </h3>
+          </div>
         </div>
       </form>
     </div>

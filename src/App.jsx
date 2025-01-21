@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import SecureDashboard from "./components/secureDashboard";
-import Auth from "./pages/register";
 import { Bounce, ToastContainer } from "react-toastify";
+import Register from "./pages/register";
 
 function App() {
   return (
@@ -23,15 +23,10 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <SecureDashboard>
-                <Dashboard />
-              </SecureDashboard>
-            }
-          />
-          <Route path="/register" element={<Auth />} />
+          <Route element={<SecureDashboard />}>
+            <Route path="/*" element={<Dashboard />} />
+          </Route>
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>

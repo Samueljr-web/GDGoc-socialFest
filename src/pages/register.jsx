@@ -34,7 +34,7 @@ function Register() {
   };
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-[#3BB396] text-white h-[560px] rounded-l-lg w-[300px] flex flex-col items-center justify-center">
+      <div className="bg-[#3BB396] text-white h-[560px] rounded-l-lg w-[300px] md:flex hidden flex-col items-center justify-center">
         <div>
           <h1 className="float-left text-2xl">GDGoc Socialfest</h1>
         </div>
@@ -50,7 +50,7 @@ function Register() {
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex items-center flex-col justify-center h-[560px] rounded-r-lg border-solid w-[500px] shadow-md"
+          className="flex items-center flex-col justify-center h-[560px] rounded-r-lg md:w-[450px] lg:w-[500px] md:shadow-md"
         >
           <h2 className="text-4xl text-[#50A294] text-center">
             Create Account
@@ -95,6 +95,16 @@ function Register() {
             >
               {loading ? "Loading..." : "Register"}
             </button>
+            <div className="text-center md:hidden block mt-2">
+              <h3 className="text-sm text-[#50A294]">
+                Already have an account?{" "}
+                <span>
+                  <Link to={"/login"} className="underline">
+                    Signin
+                  </Link>
+                </span>
+              </h3>
+            </div>
           </div>
         </form>
       </div>

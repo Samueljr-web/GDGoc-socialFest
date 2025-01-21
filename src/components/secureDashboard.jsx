@@ -10,5 +10,11 @@ const SecureDashboard = () => {
 
   return isAuth ? <Outlet /> : <Navigate to="/login" />;
 };
+//secure /login and /register routes
+
+export const SecureAuth = ({ children }) => {
+  const isAuth = adminAuth();
+  return isAuth ? <Navigate to="/" /> : children;
+};
 
 export default SecureDashboard;
