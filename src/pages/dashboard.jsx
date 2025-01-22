@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import SideBar from "../components/Layout/sideBar";
-import Users from "./dashboard/users";
+
 import Main from "./dashboard/main";
 import NotFound from "../features/404";
 import { useEffect, useState } from "react";
 import TopBar from "../components/Layout/topBar";
+import Submission from "./dashboard/submissions";
 
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -37,7 +38,7 @@ function Dashboard() {
           />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/users" element={<Users />} />
+            <Route path="/submission" element={<Submission />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
