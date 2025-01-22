@@ -4,6 +4,7 @@ import Dashboard from "./pages/dashboard";
 import SecureDashboard from "./components/secureDashboard";
 import { Bounce, ToastContainer } from "react-toastify";
 import Register from "./pages/register";
+import NotFound from "./features/404";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           </Route>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="*" element={<div>Not Found</div>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
