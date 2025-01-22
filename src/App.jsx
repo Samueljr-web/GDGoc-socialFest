@@ -24,7 +24,7 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
-          <Route element={<SecureDashboard />}>
+          <Route index element={<SecureDashboard />}>
             <Route path="/*" element={<Dashboard />} />
           </Route>
           <Route path="/register" element={<Register />} />
