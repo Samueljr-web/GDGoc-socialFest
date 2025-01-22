@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import SecureDashboard from "./components/secureDashboard";
@@ -22,16 +22,16 @@ function App() {
         theme="light"
         transition={Bounce}
       />
-      <BrowserRouter>
+      <Router>    
         <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route element={<SecureDashboard />}>
             <Route path="/*" element={<Dashboard />} />
           </Route>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
