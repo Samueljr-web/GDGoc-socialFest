@@ -4,11 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function Register() {
-  // const [page, setPage] = useState(0);
   const {
     register,
     handleSubmit,
-    // watch,
     formState: { errors },
   } = useForm();
   const [loading, setLoading] = useState(false);
@@ -16,9 +14,7 @@ function Register() {
 
   const onSubmit = (data) => {
     console.log(data);
-    //button should load for 5sec then redirect to dashboard
     setLoading(true);
-    //redirect to dashboard
     setTimeout(() => {
       navigate("/login");
     }, 1000);
@@ -33,6 +29,7 @@ function Register() {
       type: "success",
     });
   };
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="bg-[#3BB396] text-white h-[560px] rounded-l-lg w-[300px] md:flex hidden flex-col items-center justify-center">
@@ -87,8 +84,13 @@ function Register() {
                 } bg-[#F4F8F7] p-2 w-[16rem]`}
                 type="password"
                 placeholder="*********"
-                {...register("password", { required: true })}
+                {...register("password", { required: true, minLength: 8 })}
               />
+              {errors.password && (
+                <p className="text-red-600 w-[16rem]">
+                  Password must be at least 8 characters long
+                </p>
+              )}
             </div>
             <button
               type="submit"

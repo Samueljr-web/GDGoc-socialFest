@@ -70,9 +70,15 @@ function Login() {
               } bg-[#F4F8F7] p-2 w-[16rem]`}
               type="password"
               placeholder="*********"
-              {...register("password", { required: true })}
+              {...register("password", { required: true, minLength: 8 })}
             />
+            {errors.password && (
+              <p className="text-red-600 w-[16rem]">
+                Password must be at least 8 characters long
+              </p>
+            )}
           </div>
+
           <button
             type="submit"
             className="p-2 w-full text-white rounded-lg bg-[#3AAE9F]"

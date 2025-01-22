@@ -3,7 +3,9 @@ import { Navigate, Outlet } from "react-router-dom";
 const adminAuth = () => {
   const user = JSON.parse(localStorage?.getItem("userDetails"));
   const isSignedInData = localStorage?.getItem("isSignedin");
-  const isSignedIn = isSignedInData ? JSON.parse(isSignedInData) : null;
+  const { isSignedIn } = isSignedInData
+    ? JSON.parse(isSignedInData)
+    : { isSignedIn: false };
   const adminDetails = user && isSignedIn === true;
   console.log(adminDetails);
 
