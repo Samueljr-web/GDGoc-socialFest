@@ -10,7 +10,7 @@ function Login() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const userData = JSON.parse(sessionStorage.getItem("userDetails"));
+  const userData = JSON.parse(localStorage.getItem("userDetails"));
   const onSubmit = (data) => {
     if (
       userData?.email === data.email &&
@@ -19,6 +19,7 @@ function Login() {
       toast("Login Successful", {
         type: "success",
       });
+      localStorage.setItem("isSignedin", JSON.stringify({ isSignedIn: true }));
       setTimeout(() => {
         navigate("/");
       }, 1000);

@@ -1,9 +1,47 @@
+import { Route, Routes } from "react-router-dom";
+import SideBar from "../components/Layout/sideBar";
+import Users from "./dashboard/users";
+import Main from "./dashboard/main";
+import NotFound from "../features/404";
+import { useEffect, useState } from "react";
+import TopBar from "../components/Layout/topBar";
+
 function Dashboard() {
-  const user = JSON.parse(sessionStorage.getItem("userDetails"));
-  const firstName = user?.name.split(" ")[0];
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const user = JSON.parse(localStorage.getItem("userDetails"));
+  useEffect(() => {
+    const handleWindowClick = (e) => {
+      const targ = e.target;
+      let closest = targ.closest(".sidebar-container");
+      if (!closest) {
+        if (!targ.classList.contains("hamburger-menu")) {
+          setSidebarOpen(false);
+        }
+      }
+    };
+    window.addEventListener("click", handleWindowClick);
+    return () => {
+      window.removeEventListener("click", handleWindowClick);
+    };
+  }, []);
+
   return (
     <>
-      <div>Good day {firstName}</div>
+      <div className="grid grid-cols-4">
+        <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <div className="col-span-4 lg:col-span-3 h-screen">
+          <TopBar
+            // greeting={greetings}
+            adminDetails={user}
+            setSidebarOpen={setSidebarOpen}
+          />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </div>
     </>
   );
 }

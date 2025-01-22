@@ -26,7 +26,8 @@ function Register() {
       setLoading(false);
     }, 500);
 
-    sessionStorage.setItem("userDetails", JSON.stringify(data));
+    localStorage.setItem("userDetails", JSON.stringify(data));
+    localStorage.setItem("isSignedin", JSON.stringify({ isSignedIn: false }));
 
     return toast("Account created successfully", {
       type: "success",
