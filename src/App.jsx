@@ -22,7 +22,7 @@ function App() {
         theme="light"
         transition={Bounce}
       />
-      <Router>    
+      <Router>
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
