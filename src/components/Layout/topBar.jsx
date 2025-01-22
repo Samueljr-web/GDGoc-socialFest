@@ -1,6 +1,7 @@
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
 import PropTypes from "prop-types";
+import { FaUserCircle } from "react-icons/fa";
 // import { Avatar } from "../../../assets";
 
 function TopBar({ adminDetails, setSidebarOpen }) {
@@ -16,11 +17,12 @@ function TopBar({ adminDetails, setSidebarOpen }) {
       <nav className="flex items-center justify-end w-1/4">
         <IoMdNotificationsOutline className="text-2xl text-[#3AAE9F]" />
         <div className="flex items-center justify-center ml-6 ">
-          <img
-            src={"https://i.pr"}
+          {/* <img
+            src={""}
             alt=""
-            className="h-6 w-6 border border-[#3AAE9F] rounded-full"
-          />
+
+          /> */}
+          <FaUserCircle className="h-6 w-6 border border-[#3AAE9F] rounded-full" />
           <span className="text-[#3AAE9F] ml-2 font-bold hidden sm:block">
             {firstName}
           </span>
