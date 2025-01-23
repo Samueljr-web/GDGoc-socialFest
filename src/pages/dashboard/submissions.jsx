@@ -2,7 +2,7 @@ import { submissionData } from "./data";
 
 function Submission() {
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Submissions Management</h2>
       <div className="overflow-x-auto">
         <div className="min-w-[600px]">
@@ -12,9 +12,9 @@ function Submission() {
             <h2 className="text-lg font-semibold">Status</h2>
             <h2 className="text-lg font-semibold">Actions</h2>
           </div>
-          {submissionData.map((item) => (
+          {submissionData.map((item, index) => (
             <div
-              key={item.submissionId}
+              key={index}
               className="grid grid-cols-4 gap-4 bg-white p-4 border-b border-gray-200"
             >
               <h2>#{item.submissionId}</h2>
