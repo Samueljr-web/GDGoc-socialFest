@@ -6,7 +6,7 @@ function Submission() {
       <h2 className="text-2xl font-bold mb-4">Submissions Management</h2>
       <div className="overflow-x-auto">
         <div className="min-w-[600px]">
-          <div className="grid grid-cols-4 gap-4 bg-gray-200 p-4 rounded-t-lg">
+          <div className="grid grid-cols-4 gap-4 bg-[#F4F8F7] p-4 rounded-t-lg">
             <h2 className="text-lg font-semibold">Submission Id</h2>
             <h2 className="text-lg font-semibold">Date</h2>
             <h2 className="text-lg font-semibold">Status</h2>

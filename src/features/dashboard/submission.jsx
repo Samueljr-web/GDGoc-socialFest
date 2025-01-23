@@ -4,9 +4,9 @@ import { submissionData } from "../../pages/dashboard/data";
 function Submission() {
   const navigate = useNavigate();
 
-  const handleViewMore = () => {
-    navigate("/submissions");
-  };
+  //   const handleViewMore = () => {
+  //     navigate("/submissions");
+  //   };
 
   return (
     <div className="p-6">
