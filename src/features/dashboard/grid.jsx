@@ -8,7 +8,7 @@ function Grid() {
     {
       id: 2,
       name: "Total Submission",
-      number: 45,
+      number: 5,
     },
     {
       id: 3,

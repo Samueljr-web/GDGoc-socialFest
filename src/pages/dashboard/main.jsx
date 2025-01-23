@@ -5,7 +5,7 @@ function Main() {
   return (
     <div className="flex flex-col items-center mt-10">
       <Grid />
-      <Submission />
+      {/* <Submission /> */}
     </div>
   );
 }
